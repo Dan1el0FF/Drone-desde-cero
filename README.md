@@ -22,3 +22,11 @@ Los materiales que vamos a necesitar son los siguientes (en diagonal aparecen op
 - 1 LiPo Cargador de batería 2S-3S RC Balance Charger Cargador compacto para baterías LiPo 7.4-11.1V (comprado en amazon con ese mismo nombre).
 - Display OLED 128x64 0.96 pulgadas I2C SSD1315.
 
+La primera versión que diseñé fue con impresión 3D en donde modelé el chasis del drone como se puede observar en lsa siguientes imágenes:
+
+<img width="1346" height="715" alt="8a511ea6-0dac-41ea-b9e2-b2e4cc2c4f41" src="https://github.com/user-attachments/assets/5b151760-5664-4ef3-a02c-53e7e96663cf" />
+
+<img width="823" height="573" alt="Captura de pantalla 2025-12-12 192946" src="https://github.com/user-attachments/assets/3856ebe7-74ec-4b3f-9d01-28403a7c2c94" />
+
+
+
