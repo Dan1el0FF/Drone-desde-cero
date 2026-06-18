@@ -64,16 +64,16 @@ Primero empece diseñando la nueva pcb que para ahorrar espacio decidi crear 2 p
 
 https://github.com/user-attachments/assets/0f2d87ef-f514-440b-8249-9a66fb56a2bb
 
-
+PCB de potencia
 <img width="923" height="670" alt="image" src="https://github.com/user-attachments/assets/a7d20ce1-ce21-4658-b259-3e190fdb9f63" />
 
-PCB de potencia
-
-
-<img width="482" height="739" alt="image" src="https://github.com/user-attachments/assets/558cb06b-12ec-4d97-8c05-4144d658c8bd" />
 
 PCB de lógica
+<img width="482" height="739" alt="image" src="https://github.com/user-attachments/assets/558cb06b-12ec-4d97-8c05-4144d658c8bd" />
 
+Así es como se vería completamente montado:
+
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/a9c03141-f08b-46aa-a4dd-e783acd629ae" />
 
 
 
