@@ -21,6 +21,7 @@ Los materiales que vamos a necesitar son los siguientes (en diagonal aparecen op
 - 1 Batería lipo 2s.
 - 1 LiPo Cargador de batería 2S-3S RC Balance Charger Cargador compacto para baterías LiPo 7.4-11.1V (comprado en amazon con ese mismo nombre).
 - Display OLED 128x64 0.96 pulgadas I2C SSD1315.
+- led RGB tierra común.
 
 La primera versión que diseñé fue con impresión 3D en donde modelé el chasis del drone como se puede observar en lsa siguientes imágenes:
 
@@ -33,6 +34,12 @@ También diseñe su respectiva pcb cuyo archivo podremos encontrar listo para im
 <img width="3000" height="2000" alt="Drone_VIP_image v38" src="https://github.com/user-attachments/assets/31c1b594-b32d-4067-bd18-d399526ee990" />
 
 <img width="610" height="660" alt="image" src="https://github.com/user-attachments/assets/c0ef89e3-5d7a-45ed-a964-8ece3165f5e6" />
+
+al soldar los componentes a la pcb obtenemos este resultado:
+
+https://github.com/user-attachments/assets/316fa69b-e04b-4bce-a329-7272a76162d6
+
+
 
 
 
