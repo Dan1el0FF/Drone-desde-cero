@@ -1,6 +1,6 @@
 # Drone-desde-cero
 
-En este proyecto armaré un drone de 5 pulgadas desde cero utilizando un esp32 en vez de comprar una computadora de vuelo comercial, además se diseñará una pcb personalizada para montar los componentes y hacer que sea mucho más profesional, también armare el control y utilizaré esp-now para la comunicación a distancia, todo esto se desarollará en lenguaje c++ con el entorno oficial del esp32 conocido como esp-idf.
+En este proyecto armaré un drone de 5 pulgadas desde cero utilizando un esp32 en vez de comprar una computadora de vuelo comercial, además se diseñará una pcb personalizada para montar los componentes y hacer que sea mucho más profesional, también armare el control y utilizaré esp-now para la comunicación a distancia, todo esto se desarollará en lenguaje c++ con el entorno oficial del esp32 conocido como esp-idf sin utilizar el entorno de desarrollo de arduino.
 
 Los materiales que vamos a necesitar son los siguientes (en diagonal aparecen opciones alternativas):
 
@@ -22,6 +22,15 @@ Los materiales que vamos a necesitar son los siguientes (en diagonal aparecen op
 - 1 LiPo Cargador de batería 2S-3S RC Balance Charger Cargador compacto para baterías LiPo 7.4-11.1V (comprado en amazon con ese mismo nombre).
 - Display OLED 128x64 0.96 pulgadas I2C SSD1315.
 - led RGB tierra común.
+- 3 resistencias 330 ohms (para proteger el led rgb).
+- 2 resistencias de 10k ohms (la comunicación I2C necesita tener pull up).
+- 4 capacitores ceramicos de 0.1 uF 25v.
+- 2 capacitores electroliticos de 10 uF 25v.
+- 1 capacitor ceramico de 1 uF 25v.
+- 1 capacitor electrolitico de 470 uF 25v.
+- 5 borneras.
+- muchas tiras de headers macho y hembra.
+- 1 resistencia de 30k omhs y 10k omhs (divisor de voltage para medir batería).
 
 La primera versión que diseñé fue con impresión 3D en donde modelé el chasis del drone como se puede observar en lsa siguientes imágenes:
 
@@ -38,6 +47,20 @@ También diseñe su respectiva pcb cuyo archivo podremos encontrar listo para im
 al soldar los componentes a la pcb obtenemos este resultado:
 
 https://github.com/user-attachments/assets/316fa69b-e04b-4bce-a329-7272a76162d6
+
+Ahora solo falta montar los motores y el chasis.
+
+<img width="1151" height="751" alt="image" src="https://github.com/user-attachments/assets/55f71348-76c7-4cd0-9f5f-f94becb49e50" />
+
+
+El código lo vamos a ver más adelante, pero me gustaría que vean este video para entender que es lo que esta pasando.
+
+https://www.youtube.com/watch?v=hIrbeEAcsL4
+
+
+
+
+
 
 
 
