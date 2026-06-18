@@ -28,5 +28,13 @@ La primera versión que diseñé fue con impresión 3D en donde modelé el chasi
 
 <img width="823" height="573" alt="Captura de pantalla 2025-12-12 192946" src="https://github.com/user-attachments/assets/3856ebe7-74ec-4b3f-9d01-28403a7c2c94" />
 
+También diseñe su respectiva pcb cuyo archivo podremos encontrar listo para imprimir en la carpeta llamada pcbs bajo el nombre de "Drone_PCB_GERBER_Y1" y se ve de la siguiente manera:
+
+<img width="3000" height="2000" alt="Drone_VIP_image v38" src="https://github.com/user-attachments/assets/31c1b594-b32d-4067-bd18-d399526ee990" />
+
+<img width="610" height="660" alt="image" src="https://github.com/user-attachments/assets/c0ef89e3-5d7a-45ed-a964-8ece3165f5e6" />
+
+
+
 
 
