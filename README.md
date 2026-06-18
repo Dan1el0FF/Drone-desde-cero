@@ -57,6 +57,28 @@ El código lo vamos a ver más adelante, pero me gustaría que vean este video p
 
 https://www.youtube.com/watch?v=hIrbeEAcsL4
 
+Básicamente el material que utilice es demasiado debil y pesado para aguantar caidas por lo que para este punto ya había roto varios chasis del drone por lo que decidí rediseñar el drone para ser mas ligero y resistente a impactos, fue entonces cuando compré el chasis de fibra de carbono junto con unos motores más livianos y de mejor calidad, además el drone se estrellaba por que el pid no estaba suficientemente calibrado.
+
+Primero empece diseñando la nueva pcb que para ahorrar espacio decidi crear 2 pcbs separadas que se unen como un sandwich la primera pcb es dedicada a potencia del drone y la segunda pcb con tiene las pistas de logica. al unirlas se ve la siguiente manera:
+
+
+https://github.com/user-attachments/assets/0f2d87ef-f514-440b-8249-9a66fb56a2bb
+
+
+<img width="923" height="670" alt="image" src="https://github.com/user-attachments/assets/a7d20ce1-ce21-4658-b259-3e190fdb9f63" />
+
+PCB de potencia
+
+
+<img width="482" height="739" alt="image" src="https://github.com/user-attachments/assets/558cb06b-12ec-4d97-8c05-4144d658c8bd" />
+
+PCB de lógica
+
+
+
+
+
+
 
 
 
