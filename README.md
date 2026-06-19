@@ -89,6 +89,16 @@ Gráfica de roll con acelerómetro vs roll con acelerometro y giroscopio
 Tabla de máximos y mínimos
 <img width="1458" height="226" alt="image" src="https://github.com/user-attachments/assets/b5c945af-4c5e-46af-b580-cfa57417e4c1" />
 
+Como podemos observar la señal filtrada tiene un cierto nivel de retraso respecto a la señal original, el cual podemos aumentar y disminuir a nuestra desición con el costo de que la señal filtrada tendrá mayor ruido a menor retraso y menor ruido a mayor retraso de la señal.
+
+Una vez filtrada la señal decidí hacer el siguiente programa para observar si mis resultados eran correctos de manera visual:
+
+
+https://github.com/user-attachments/assets/b20ee6c8-fb1f-4b22-a14e-a2b12be38356
+
+
+
+
 
 
 
