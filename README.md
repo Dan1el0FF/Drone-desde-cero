@@ -96,7 +96,7 @@ Una vez filtrada la señal decidí hacer el siguiente programa para observar si 
 
 https://github.com/user-attachments/assets/b20ee6c8-fb1f-4b22-a14e-a2b12be38356
 
-Lo siguiente a lo que me puse a trabajar fue en armar el control de estabilidad  utilizando PID en cascada que basicamente quiere decir que tienes un loop interno y uno externo en donde el loop interno tiene que correr al menos 5 veces más rápido que el loop externo lo que yo decidí tomar para el loop interno fue el sensor más rápido que tenía es decir el giroscopio entregando datos a una frecuencia de 1khz y luego el loop externo a una frecuencia de 250hz  
+Lo siguiente a lo que me puse a trabajar fue en armar el control de estabilidad  utilizando PID en cascada que basicamente quiere decir que tienes un loop interno y uno externo en donde el loop interno tiene que correr al menos 5 veces más rápido que el loop externo lo que yo decidí tomar para el loop interno fue el sensor más rápido que tenía es decir el giroscopio entregando datos a una frecuencia de 1khz y luego el loop externo a una frecuencia de 250hz siendo el filtro kalman osea la rotación del drone roll, pitch, yaw.
 
 
 
