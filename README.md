@@ -86,7 +86,8 @@ al gráficar el resultado del filtro obtenemos lo siguiente:
 Gráfica de roll con acelerómetro vs roll con acelerometro y giroscopio
 <img width="1289" height="584" alt="image" src="https://github.com/user-attachments/assets/24dcb508-a3fb-47ae-9332-65be46377d1e" />
 
-
+Tabla de máximos y mínimos
+<img width="1458" height="226" alt="image" src="https://github.com/user-attachments/assets/b5c945af-4c5e-46af-b580-cfa57417e4c1" />
 
 
 
