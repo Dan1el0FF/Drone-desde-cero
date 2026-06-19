@@ -1,0 +1,2 @@
+idf_component_register(SRCS "BMI160.cpp" "main.cpp" "ESCDriver.cpp" "ESPNow.cpp" "HMC5883L.cpp" "KalmanFilter.cpp" "MultipleI2C.cpp" "PID.cpp" "flight_controller.cpp" "globals.cpp" "webserver.cpp"
+                    INCLUDE_DIRS ".")
