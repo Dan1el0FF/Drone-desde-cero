@@ -9,7 +9,7 @@ Los materiales que vamos a necesitar son los siguientes (en diagonal aparecen op
 - 4 Hélices de 5 pulgadas y 3 palas.
 - 1 BMI160 sensor con giroscopio y acelerómetro.
 - 1 HCM5883L sensor magnetómetro.
-- 1 Batería Lipo 11.1v 3s 2200 mAh 25C.
+- 1 Batería Lipo 11.1v 3s 2200 mAh 25C / batería Lipo 11.1v 3s 1300mAh 75-50c.
 - 2 Esp32 DevKitC 32U WROOM (se caracteriza por que no tiene antena propia sino una entrada para conectar una antena externa).
 - 2 Antena de 2.4 GHz 3dBi SMA Macho con Cable SMA Hembra a UFL (IPEX).
 - 2 Joystick con eje X,Y - KY-023.
@@ -96,7 +96,17 @@ Una vez filtrada la señal decidí hacer el siguiente programa para observar si 
 
 https://github.com/user-attachments/assets/b20ee6c8-fb1f-4b22-a14e-a2b12be38356
 
-Lo siguiente a lo que me puse a trabajar fue en armar el control de estabilidad  utilizando PID en cascada que basicamente quiere decir que tienes un loop interno y uno externo en donde el loop interno tiene que correr al menos 5 veces más rápido que el loop externo lo que yo decidí tomar para el loop interno fue el sensor más rápido es decir el giroscopio entregando datos a una frecuencia de 1khz y luego el loop externo a una frecuencia de 250hz siendo el filtro kalman osea las rotaciones del drone roll, pitch, yaw. Sin embargo, noté que el drone vibra mucho lo cual genera bastante ruido en los sensores para lo cual aplique un filtro ema para el giroscopio.
+Lo siguiente a lo que me puse a trabajar fue en armar el control de estabilidad  utilizando PID en cascada que basicamente quiere decir que tienes un loop interno y uno externo en donde el loop interno tiene que correr al menos 5 veces más rápido que el loop externo lo que yo decidí tomar para el loop interno fue el sensor más rápido es decir el giroscopio entregando datos a una frecuencia de 1khz y luego el loop externo a una frecuencia de 250hz siendo el filtro kalman osea las angulos del drone: roll, pitch, yaw. Sin embargo, noté que el drone vibraba mucho lo cual genera bastante ruido en los sensores para lo cual aplique un filtro ema para el giroscopio antes de entrar a la etapa del pid interno. También, realicé experimentos en donde probé controlar el yaw mediante solo angulo, es decir buscar mantenerse viendo hacia el norte por ejemplo, pero el drone seguia rotando sin parar por lo que al cambiarlo a simplemente tomar en cuenta la velocidad angular z y buscar que esa velocidad sea cero, el problema se detuvo y drone dejó de rotar sin control.
+
+COMO ACTUALIZAR LAS GANANCIAS DEL DRONE?
+
+Cuando el drone recibe energía se crea un servidor que aparece en wifi bajo el nombre de "DRONE_CONFIG" y al conectarse debes poner en el navegador web el siguiente enlace http://192.168.4.1/
+el cual te dirigira a la página en donde se encuentra las ganancias que puedes configurar.
+
+Ejemplo de como se veria el webserver
+
+<img width="652" height="1280" alt="image" src="https://github.com/user-attachments/assets/d6d8da4a-a3a3-4c37-8f5b-b6dc739d0323" />
+
 
 
 
