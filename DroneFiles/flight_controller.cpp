@@ -65,7 +65,7 @@ void Kalman_yaw(){
     Rot_xy[1] = pitch;
     float mea_Tyaw = kalman_yaw_Wtilt.tilt_compensation(B_xyz, Rot_xy);
     Tyaw = kalman_yaw_Wtilt.calculate(Tyaw,gyro[2],mea_Tyaw,dt_50hz);
-    printf(">mea_yaw:%.2f,Tyaw:%.2f\r\n",mea_Tyaw,Tyaw);
+    //printf(">mea_yaw:%.2f,Tyaw:%.2f\r\n",mea_Tyaw,Tyaw);
     
 }
 
