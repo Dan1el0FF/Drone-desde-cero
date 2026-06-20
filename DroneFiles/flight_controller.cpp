@@ -1,5 +1,6 @@
 #include "define.h"
 using namespace std;
+
 float maxmin(float value){
     if(value>=100)value=100;
     if(value<=0)value=0;
@@ -54,9 +55,9 @@ void read_mag(){
 void Kalman_roll_pitch(){
     float mea_roll = atan2(Acc[1],Acc[2]) * 180.0 / M_PI;
     float mea_pitch = atan2(-Acc[0], sqrt(Acc[1] * Acc[1] + Acc[2] * Acc[2])) * 180.0 / M_PI;
-    pitch = kalman_pitch.calculate(pitch,gyro[0],mea_pitch,dt_250hz);
-    roll = kalman_roll.calculate(roll,gyro[1],mea_roll,dt_250hz);
-    //printf(">roll:%.2f,pitch%.2f\r\n",roll,pitch);
+    pitch = kalman_pitch.calculate(pitch,gyro[1],mea_pitch,dt_250hz);
+    roll = kalman_roll.calculate(roll,gyro[0],mea_roll,dt_250hz);
+    //printf(">mea_roll:%.2f,gx:%.2f,gy:%.2f\r\n", mea_roll, gyro[0], gyro[1]);
 }
 
 void Kalman_yaw(){
@@ -64,6 +65,7 @@ void Kalman_yaw(){
     Rot_xy[1] = pitch;
     float mea_Tyaw = kalman_yaw_Wtilt.tilt_compensation(B_xyz, Rot_xy);
     Tyaw = kalman_yaw_Wtilt.calculate(Tyaw,gyro[2],mea_Tyaw,dt_50hz);
+    printf(">mea_yaw:%.2f,Tyaw:%.2f\r\n",mea_Tyaw,Tyaw);
     
 }
 
@@ -92,14 +94,14 @@ void PID_ANGLE(){
 void PID_RATE(){
 
     //Secondary Loop
-    float roll_output = roll_rate_pid.calculate(roll_rate_output,gyro_filtered[1]);
-    float pitch_output = pitch_rate_pid.calculate(pitch_rate_output,gyro_filtered[0]);
+    float roll_output = roll_rate_pid.calculate(roll_rate_output,gyro_filtered[0]);
+    float pitch_output = pitch_rate_pid.calculate(pitch_rate_output,gyro_filtered[1]);
     float yaw_output = yaw_rate_pid.calculate(yaw_target_rate, gyro_filtered[2]);
 
-    float duty_UL = base_thrust - roll_output*1.15 - pitch_output + yaw_output; // M1 (Adelante, Izquierda)
-    float duty_UR = base_thrust - roll_output*1.15 + pitch_output - yaw_output; // M2 (Adelante, Derecha)
-    float duty_DL = base_thrust + roll_output*0.92 - pitch_output - yaw_output; // M3 (Atrás, Izquierda)
-    float duty_DR = base_thrust + roll_output*0.92 + pitch_output + yaw_output; // M4 (Atrás, Derecha)
+    float duty_UL = base_thrust - roll_output*1.0 - pitch_output + yaw_output; // M1 (Adelante, Izquierda)
+    float duty_UR = base_thrust - roll_output*1.0 + pitch_output - yaw_output; // M2 (Adelante, Derecha)
+    float duty_DL = base_thrust + roll_output*1.0 - pitch_output - yaw_output; // M3 (Atrás, Izquierda)
+    float duty_DR = base_thrust + roll_output*1.0 + pitch_output + yaw_output; // M4 (Atrás, Derecha)
 
     //printf("UL: %.2f UR: %.2f DL: %.2f DR: %.2f PITCH: %.2f ROLL: %.2f\n",duty_UL,duty_UR,duty_DL,duty_DR,pitch,roll);
     //printf("pitch_t: %.2f roll_t: %.2f\n",pitch_target,roll_target);
