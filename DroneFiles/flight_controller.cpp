@@ -78,6 +78,17 @@ void Network_IN(){
         espnow_data_t dataIn = espnow.get_received_data();
         //ESP_LOGI(TAG, "Datos recibidos por ESPNOW: %s", dataIn.message);
         int items_read = sscanf(dataIn.message, "%f,%f,%f", &base_thrust,&roll_target,&pitch_target);
+        if (items_read == 3) {
+            last_packet_time = esp_timer_get_time();   // refresca el "OK" solo con paquete bien parseado
+        }
+    }
+    check_failsafe();
+}
+
+void check_failsafe(){
+    uint64_t now = esp_timer_get_time();
+    if (now - last_packet_time >= FAILSAFE_TIMEOUT_US) {
+        base_thrust = 0.0f;   // maxmin() ya apaga los 4 motores cuando base_thrust<=0
     }
 }
 
@@ -98,10 +109,10 @@ void PID_RATE(){
     float pitch_output = pitch_rate_pid.calculate(pitch_rate_output,gyro_filtered[1]);
     float yaw_output = yaw_rate_pid.calculate(yaw_target_rate, gyro_filtered[2]);
 
-    float duty_UL = base_thrust - roll_output*1.0 - pitch_output + yaw_output; // M1 (Adelante, Izquierda)
-    float duty_UR = base_thrust - roll_output*1.0 + pitch_output - yaw_output; // M2 (Adelante, Derecha)
-    float duty_DL = base_thrust + roll_output*1.0 - pitch_output - yaw_output; // M3 (Atrás, Izquierda)
-    float duty_DR = base_thrust + roll_output*1.0 + pitch_output + yaw_output; // M4 (Atrás, Derecha)
+    float duty_UL = base_thrust - roll_output*1.12 - pitch_output + yaw_output; // M1 (Adelante, Izquierda)
+    float duty_UR = base_thrust - roll_output*1.12 + pitch_output - yaw_output; // M2 (Adelante, Derecha)
+    float duty_DL = base_thrust + roll_output*0.88 - pitch_output - yaw_output; // M3 (Atrás, Izquierda)
+    float duty_DR = base_thrust + roll_output*0.88 + pitch_output + yaw_output; // M4 (Atrás, Derecha)
 
     //printf("UL: %.2f UR: %.2f DL: %.2f DR: %.2f PITCH: %.2f ROLL: %.2f\n",duty_UL,duty_UR,duty_DL,duty_DR,pitch,roll);
     //printf("pitch_t: %.2f roll_t: %.2f\n",pitch_target,roll_target);
