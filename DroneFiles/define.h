@@ -40,6 +40,7 @@
 #define dt_250hz 0.004
 #define dt_50hz 0.020
 
+#define FAILSAFE_TIMEOUT_US 300000ULL       // 300 ms en microsegundos
 // ================== OBJETOS GLOBALES ==================
 extern ESPNow espnow;
 
@@ -86,6 +87,9 @@ extern float yaw_rate_gains[3];
 
 extern float base_thrust;
 
+extern uint64_t last_packet_time;          // marca de tiempo del último paquete válido (us)
+
+void check_failsafe();
 float maxmin(float value);
 void master_setup();
 void read_gyro();
