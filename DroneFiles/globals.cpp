@@ -50,3 +50,5 @@ float roll_rate_gains[3]={0.045f,0.0001f,0.0f};
 float pitch_rate_gains[3]={0.04f,0.0f,0.0f};
 float yaw_rate_gains[3]={0.08f,0.0f,0.0f};
 float base_thrust = 0.0; //dejame en cero por seguridad la ultima vez me dejaste en 25 borrame si ya lo cambiaste!
+
+uint64_t last_packet_time = 0;
