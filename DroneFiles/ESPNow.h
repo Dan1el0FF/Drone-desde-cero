@@ -25,6 +25,8 @@ public:
     bool is_data_received();
     espnow_data_t get_received_data();
     void get_esp_mac();
+    bool is_connected();
+    
 
 private:
     bool data_received;
@@ -38,6 +40,9 @@ private:
 
     static void on_data_sent(const uint8_t *mac_addr, esp_now_send_status_t status);
     static void on_data_recv(const esp_now_recv_info_t *esp_now_info, const uint8_t *data, int data_len);
+
+    uint32_t last_ack_time_ms = 0;
+    static const uint32_t CONNECTION_TIMEOUT_MS = 300;
 };
 
 #endif // ESPNOW_H
