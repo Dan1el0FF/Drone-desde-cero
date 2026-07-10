@@ -71,11 +71,6 @@ MiniGFX gfx(&oled);
 
 bool flag = true;
 
-/* ===== WiFi Blink (NO BLOQUEANTE) ===== */
-bool wifiVisible = true;
-uint32_t lastWifiToggle = 0;
-const uint32_t WIFI_BLINK_INTERVAL = 1000; // ms
-
 /* ===== Batería iconos ===== */
 const uint8_t* batteryIcons[5] = {
     battery_0_19x10,
@@ -104,13 +99,6 @@ void display(){
         flag = false;
     }
 
-    /* ===== WiFi blink sin delay ===== */
-    uint32_t now = xTaskGetTickCount() * portTICK_PERIOD_MS;
-    if (now - lastWifiToggle >= WIFI_BLINK_INTERVAL) {
-        wifiVisible = !wifiVisible;
-        lastWifiToggle = now;
-    }
-
     uint8_t batteryLevel;
 
     if (battery <= 0) {
@@ -123,8 +111,8 @@ void display(){
     /* ===== UI ===== */
     gfx.drawRect(0, 0, 128, 64, true);
 
-    if (wifiVisible) {
-        gfx.drawBitmap(2, 2, wifi_16x16, 15, 15, true);
+   if (espnow.is_connected()) {
+        gfx.drawBitmap(2, 2, wifi_16x16, 15, 15, true); // conectado: icono fijo, sin parpadeo
     }
 
     gfx.drawBitmap(
