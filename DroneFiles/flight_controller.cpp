@@ -35,6 +35,7 @@ void master_setup(){
     motorDL.setDuty(0);
     motorDR.setDuty(0);
     vTaskDelay(5000/portTICK_PERIOD_MS);    
+    last_packet_time = esp_timer_get_time();
 }
 
 void read_gyro(){
