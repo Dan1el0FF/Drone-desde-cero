@@ -102,9 +102,15 @@ void ESPNow::espnow_init() {
 }
 
 void ESPNow::on_data_sent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-    // Puedes agregar lógica para manejar el resultado de envíos si lo necesitas
+    if (instance != nullptr && status == ESP_NOW_SEND_SUCCESS) {
+        instance->last_ack_time_ms = xTaskGetTickCount() * portTICK_PERIOD_MS;
+    }
 }
 
+bool ESPNow::is_connected() {
+    uint32_t now = xTaskGetTickCount() * portTICK_PERIOD_MS;
+    return (now - last_ack_time_ms) < CONNECTION_TIMEOUT_MS;
+}
 // Callback para manejar los eventos de recepción
 void ESPNow::on_data_recv(const esp_now_recv_info_t *esp_now_info, const uint8_t *data, int data_len) {
 
